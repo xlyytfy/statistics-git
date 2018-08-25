@@ -57,7 +57,7 @@ public class WXActivityService extends TransService {
 			Return ret = this.serviceBus.handleTrans(mongodbRequest, cdoResponse);
 			if (ret == null || ret.getCode() != 0) {
 				return Return.valueOf(-1, "mongodb获取数据报错");
-			}
+			} 
 		} catch (Exception e) {
 			logger.error("mongod操作报错" + e);
 			return Return.valueOf(-1, "参数:" + cdoRequest + ",保存到mongodb失败：" + e);

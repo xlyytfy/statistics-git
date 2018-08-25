@@ -33,7 +33,7 @@ public class LogService extends WebService
 			for (String key : fieldIds) {
 				parameterMap.put(key, cdoRequest.getObjectValue(key));
 			}
-			parameterMap.put("statType","rue_burying_point");													//设置标记
+			//parameterMap.put("statType","rue_burying_point");													//设置标记
 			parameterMap.put("uuid",UUID.randomUUID().toString().replace("-", "").toLowerCase());				//唯一标识：防止重复插入
 			
 			String jsonParams = JSON.toJSONString(parameterMap);
