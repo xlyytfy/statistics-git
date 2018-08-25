@@ -1,0 +1,85 @@
+<?xml version="1.0"   encoding="UTF-8"?>
+<MongoService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:noNamespaceSchemaLocation="http://www.cdoframework.com/xsd/MongoDB.xsd" >
+	
+	<CommandTrans TransName="addWXActivity">
+		<Command OutputId="#nCount#">
+			<OutputText>db.wx_activity.insert( {</OutputText>
+			<CommandIf Type="String" Operator="ISNOT" Value1="#statInfoCDO.templetId#" Value2="NULL">
+				<CommandThen>
+					<OutputText>templetId:"#statInfoCDO.templetId#"</OutputText>
+				</CommandThen>
+				<CommandElse>
+					<OutputText>templetId:""</OutputText>
+				</CommandElse>
+			</CommandIf>			
+			<CommandIf Type="String" Operator="ISNOT" Value1="#statInfoCDO.page#" Value2="NULL">
+				<CommandThen>
+					<OutputText>,page:"#statInfoCDO.page#"</OutputText>
+				</CommandThen>
+				<CommandElse>
+					<OutputText>,page:""</OutputText>
+				</CommandElse>
+			</CommandIf>			
+			<CommandIf Type="String" Operator="ISNOT" Value1="#statInfoCDO.mobil#" Value2="NULL">
+				<CommandThen>
+					<OutputText>,mobil:"#statInfoCDO.mobil#"</OutputText>
+				</CommandThen>
+				<CommandElse>
+					<OutputText>,mobil:""</OutputText>
+				</CommandElse>
+			</CommandIf>
+			<CommandIf Type="String" Operator="ISNOT" Value1="#statInfoCDO.action#" Value2="NULL">
+				<CommandThen>
+					<OutputText>,action:"#statInfoCDO.action#"</OutputText>
+				</CommandThen>
+				<CommandElse>
+					<OutputText>,action:""</OutputText>
+				</CommandElse>
+			</CommandIf>
+			
+			<CommandIf Type="String" Operator="ISNOT" Value1="#statInfoCDO.uuid#" Value2="NULL">
+				<CommandThen>
+					<OutputText>,uuid:"#statInfoCDO.uuid#"</OutputText>
+				</CommandThen>
+				<CommandElse>
+					<OutputText>,uuid:""</OutputText>
+				</CommandElse>
+			</CommandIf>
+
+			<OutputText>})</OutputText>
+		</Command>
+		<OnException>
+			<Return Info="UserMongoService.addUser" Code="-1" Text="操作失败"></Return>
+		</OnException>
+
+		<Return Info="OK" Code="0">
+
+			<ReturnItem ValueId="#cdosOutputText#" FieldId="#cdosOutputText#" />
+		</Return>
+	</CommandTrans>
+	
+	<CommandTrans TransName="select">
+		<Command OutputId="#cdosOutput#">
+			<OutputText>db.wx_activity.find()</OutputText>
+		</Command>
+		<OnException>
+			<Return Info="Failed" Code="-1"></Return>
+		</OnException>
+		<Return Info="OK" Code="0">
+			<ReturnItem ValueId="#cdosOutput#" FieldId="#cdosOutput#" />
+		</Return>
+	</CommandTrans>
+	
+	<CommandTrans  TransName="getDataByUuid">
+		<Command   OutputId="#cdosOutputText#">
+		    <OutputText>db.wx_activity.find({"uuid":"#uuid#"})</OutputText>
+		</Command>
+		<OnException>
+		    <Return Info="Failed" Code="-1"></Return>
+		</OnException>
+		<Return Info="OK" Code="0">
+		    <ReturnItem ValueId="#cdosOutputText#" FieldId="#cdosOutputText#"/>
+		</Return>
+	</CommandTrans>
+	
+</MongoService>

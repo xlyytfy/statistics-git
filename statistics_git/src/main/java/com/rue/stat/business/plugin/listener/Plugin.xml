@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServicePlugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://code.taobao.org/p/dpcore/src/trunk/cdosrc/xsd/ServiceBus.xsd?orig">
+
+	<EventService Name="EventService" Resource="com/rue/stat/business/plugin/listener/EventService.xml" Encoding="utf-8" />
+	
+</ServicePlugin>

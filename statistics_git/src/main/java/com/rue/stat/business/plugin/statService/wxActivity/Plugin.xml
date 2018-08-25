@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServicePlugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://code.taobao.org/p/dpcore/src/trunk/cdosrc/xsd/ServiceBus.xsd?orig">
+	<Parameter Name="RedisURI" Value="r-2zedf1f551d03544.redis.rds.aliyuncs.com:6379"/>
+
+ 	<ServiceConfig Name="WXActivityService">
+		<TransService ClassPath="com.rue.stat.business.plugin.statService.wxActivity.WXActivityService"/>
+		<MongoService Resource="com/rue/stat/business/plugin/statService/wxActivity/WXActivityService.xml"/>
+	</ServiceConfig>
+	
+	<EventService Name="EventService" Resource="com/rue/stat/business/plugin/listener/EventService.xml" Encoding="utf-8" />
+	
+</ServicePlugin>

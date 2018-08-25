@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="com.rue.stat.web.service.StaticsService"
+  id="myeclipse.1397036397441"
+  context-root="/com.rue.stat.web.service.StaticsService"
+  j2ee-spec="6.0"
+  archive="com.rue.stat.web.service.StaticsService.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

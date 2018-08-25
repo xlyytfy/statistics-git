@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://code.taobao.org/p/dpcore/src/trunk/cdosrc/xsd/EventService.xsd?orig">
+	
+	<!-- 收集到Logstash发送的日志 -->
+	<Event  ServiceName="statistics" TransName="onRecieved">
+	
+		<!-- 微信小程序推送日志:后期配置多种类型 -->
+		<handleTrans  ServiceName="WXActivityService" TransName="save">
+			<!-- 封装日志信息：通过mtaType判别如：WXActivityMta-->
+			<Field Id="{statInfo}" ValueId="{statInfo}"/>
+		</handleTrans>
+		
+	</Event>
+	
+</EventService>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TransFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://code.taobao.org/p/dpcore/src/trunk/cdosrc/xsd/TransFilter.xsd?orig">
+		
+	<DefaultPermission>refused</DefaultPermission>
+	<LocalServiceURL>http://com.rue.stat.web.service</LocalServiceURL>
+	
+	<Trans ServiceName="LogService" Permission="allowed" TransName="saveLog"/>
+	
+	<Trans ServiceName="StatisticsService" Permission="allowed" TransName="statistics"/>
+	
+	<OnRefused><Return Code="403" Info="not allowed" Text="not allowed"/></OnRefused>
+</TransFilter>
